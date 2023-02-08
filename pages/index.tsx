@@ -12,16 +12,6 @@ const Home: NextPage = () => {
           This example app shows how to use BoxyHQ SAML Jackson with Cerbos to
           authorize access.
         </p>
-        <p className="text-gray-600">
-          You can use{" "}
-          <a
-            href="https://mocksaml.com/"
-            className="font-medium underline underline-offset-2"
-          >
-            Mock SAML
-          </a>{" "}
-          a free SAML 2.0 Identity Provider to test the SAML SSO integration.
-        </p>
         <ul className="flex flex-row space-x-6">
           <li>
             <a
@@ -30,7 +20,7 @@ const Home: NextPage = () => {
               rel="noreferrer"
               href="https://boxyhq.com/docs/jackson/overview"
             >
-              Documentation
+              SAML Jackson Documentation
             </a>
           </li>
           <li>
@@ -38,29 +28,9 @@ const Home: NextPage = () => {
               className="underline underline-offset-2"
               target="_blank"
               rel="noreferrer"
-              href="https://github.com/boxyhq/jackson"
+              href="https://docs.cerbos.dev/"
             >
-              Github
-            </a>
-          </li>
-          <li>
-            <a
-              className="underline underline-offset-2"
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.npmjs.com/package/@boxyhq/saml-jackson"
-            >
-              NPM
-            </a>
-          </li>
-          <li>
-            <a
-              className="underline underline-offset-2"
-              target="_blank"
-              rel="noreferrer"
-              href="https://hub.docker.com/r/boxyhq/jackson"
-            >
-              Docker Hub
+              Cerbos Documentation
             </a>
           </li>
         </ul>
