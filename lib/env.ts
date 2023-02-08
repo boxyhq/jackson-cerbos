@@ -11,7 +11,7 @@ export const env = {
       process.env.BOXYHQ_SAML_JACKSON_URL || "https://jackson-demo.boxyhq.com",
     apiKey: process.env.BOXYHQ_SAML_JACKSON_API_KEY || "secret",
     product: process.env.BOXYHQ_PRODUCT || "jackson-cerbos",
-    redirectUrl: `${process.env.APP_URL}/api/auth/callback/boxyhq-saml`,
-    defaultRedirectUrl: `${process.env.APP_URL}/api/auth/callback/boxyhq-saml`,
+    redirectUrl: `${process.env.APP_URL}/login`,
+    defaultRedirectUrl: `${process.env.APP_URL}/login`,
   },
 };

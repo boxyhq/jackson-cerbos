@@ -3,14 +3,14 @@ import { signIn, useSession } from "next-auth/react";
 import Router from "next/router";
 import { FormEvent, useState } from "react";
 import Container from "../components/Container";
-import { extractDomain } from "../lib/utils";
-import { env } from "../lib/env";
+import { extractDomain } from "@/lib/utils";
+import { env } from "@/lib/env";
 
 const Login: NextPage<{ product: string }> = ({ product }) => {
   const { data: session } = useSession();
 
   const [state, setState] = useState({
-    email: "demo@boxyhq.com",
+    email: "jackson@acme.com",
   });
 
   // Update state when input changes
