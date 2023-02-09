@@ -71,7 +71,7 @@ export default function Navbar() {
             <div className="hidden sm:ml-3 sm:flex sm:space-x-3">
               <NavItem href="/" text="Home" />
               <NavItem href="/saml-connection" text="SAML Connection" />
-              {session && session.user && (
+              {session && session.user ? (
                 <button
                   onClick={() =>
                     signOut({
@@ -82,6 +82,8 @@ export default function Navbar() {
                 >
                   Sign out
                 </button>
+              ) : (
+                <NavItem href="/login" text="Sign in" />
               )}
             </div>
           </div>
