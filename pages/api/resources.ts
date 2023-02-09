@@ -22,33 +22,56 @@ export default async function handler(
 
 // Call Cerbos API to check if the user has access to the resource
 const handlePOST = async (req: NextApiRequest, res: NextApiResponse) => {
-  // Read session from NextAuth session
-
   const session = await getServerSession(req, res, authOptions);
 
-  if (!session) {
+  if (!session?.user) {
     return res.status(401).json({
       error: { message: "Unauthorized" },
     });
   }
 
-  console.log(session);
+  const { id, email, roles } = session.user;
 
-  const response = await cerbos.isAllowed({
+  if (!id || !email || !roles) {
+    throw new Error("User is missing required fields");
+  }
+
+  const cerbosPayload = {
     principal: {
-      id: "user@example.com",
-      roles: ["USER"],
-      attributes: { tier: "PREMIUM" },
+      id,
+      roles: ["user"], // Roles from Okta or other SAML provider
+      attributes: {
+        email,
+      },
     },
-    resource: {
-      kind: "document",
-      id: "1",
-      attributes: { owner: "user@example.com" },
-    },
-    action: "view",
-  });
+    resources: [
+      {
+        resource: {
+          kind: "contact",
+          id: "1",
+          attributes: {
+            author: id, // This resource is owned by current user
+          },
+        },
+        actions: ["read", "create", "update", "delete"],
+      },
+
+      {
+        resource: {
+          kind: "contact",
+          id: "2",
+          attributes: {
+            author: "some-id", // This resource is owned by a different user
+          },
+        },
+        actions: ["read", "create", "update", "delete"],
+      },
+    ],
+  };
+
+  const response = await cerbos.checkResources(cerbosPayload);
 
   return res.status(200).json({
-    data: { allowed: response, session },
+    data: response.results,
   });
 };

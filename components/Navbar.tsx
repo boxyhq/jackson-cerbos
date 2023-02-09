@@ -68,22 +68,20 @@ export default function Navbar() {
             </button>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <div className="hidden sm:ml-3 sm:flex sm:space-x-3">
               <NavItem href="/" text="Home" />
               <NavItem href="/saml-connection" text="SAML Connection" />
-              <NavItem href="/me" text="Me" />
-              {session && session.user ? (
+              {session && session.user && (
                 <button
                   onClick={() =>
                     signOut({
                       callbackUrl: `${window.location.origin}`,
                     })
                   }
+                  className="inline-flex items-center px-1 pt-1 text-base text-gray-900"
                 >
                   Sign out
                 </button>
-              ) : (
-                <NavItem href="/login" text="Sign in" />
               )}
             </div>
           </div>

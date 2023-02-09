@@ -35,9 +35,9 @@ const Login: NextPage<{ product: string }> = ({ product }) => {
     signIn("boxyhq-saml", undefined, authorizationParams);
   };
 
-  // If the session exists, redirect the users to /me
+  // If the session exists, redirect the users to /
   if (session && session?.user) {
-    Router.push("/me");
+    Router.push("/");
   }
 
   return (

@@ -1,8 +1,7 @@
-import jwt from "jsonwebtoken";
 import NextAuth, { NextAuthOptions } from "next-auth";
-import { JWT } from "next-auth/jwt";
 import BoxyHQSAMLProvider from "next-auth/providers/boxyhq-saml";
 import { env } from "@/lib/env";
+import type { Role } from "nextauth";
 
 const { jackson } = env;
 
@@ -20,40 +19,32 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, profile }) {
-      const allowedRoles = ["admin", "user"];
-      const defaultRole = "developer";
+      const defaultRole = "user";
 
+      // Add roles to the token if they exist
+      // If there is no role in the profile, use the default role
       if (profile) {
-        // @ts-ignore
-        token.roles = profile.raw.roles;
-        // @ts-ignore
-        token.groups = profile.raw.groups;
+        let roles: Role[] = [];
+
+        if (profile.raw.roles) {
+          roles = profile.raw.roles;
+        } else if (profile.raw.groups) {
+          roles = profile.raw.groups;
+        } else {
+          roles = [defaultRole];
+        }
+
+        token.roles = roles;
       }
-
-      // console.log({ token, profile });
-
-      // if (profile) {
-      //   const roles = profile.roles as any;
-      //   const groups = profile.groups as any;
-      //   let role;
-      //   if (roles && roles.length > 0) {
-      //     role = roles[0];
-      //   } else if (groups && groups.length > 0) {
-      //     role = groups[0];
-      //   }
-      //   token["role"] = role ?? defaultRole;
-      // }
 
       return token;
     },
 
-    async session({ session, user, token }) {
-      // @ts-ignore
-      session.user.id = token.sub;
-      // @ts-ignore
-      session.user.roles = token.roles;
-      // @ts-ignore
-      session.user.groups = token.groups;
+    async session({ session, token }) {
+      if (token && session.user) {
+        session.user.id = token.sub;
+        session.user.roles = token.roles;
+      }
 
       return session;
     },

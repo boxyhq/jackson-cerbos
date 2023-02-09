@@ -27,8 +27,6 @@ const Contacts: NextPage = () => {
     getResource();
   }, []);
 
-  console.log(cerbosResponse);
-
   // User has authenticated
   if (true) {
     return (
