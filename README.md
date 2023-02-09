@@ -76,7 +76,7 @@ Follow the steps below to test the example app.
 
 ### Add SAML Connection
 
-The first step is to add a SAML connection to the app. To do this, click the menu "SAML Connection" from the top navigation bar.
+The first step is to add a SAML connection to the app. To do this, click the menu `SAML Connection` from the top navigation bar.
 
 In real world applications, the SAML connection is typically configured by the IT team and this page should be accessible only by the users with the appropriate access in the organization.
 
