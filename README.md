@@ -2,27 +2,6 @@
 
 This is an example application that demonstrates how to use [Cerbos](https://cerbos.dev) with [SAML Jackson](https://boxyhq.com/docs/jackson/overview)
 
-## Overview
-
-```bash
-cd cerbos
-```
-
-```bash
-sh ./start.sh
-```
-
-```bash
-docker-compose up
-```
-
-### Tech Stack
-
-- [SAML Jackson](https://boxyhq.com/docs/jackson/overview)
-- [Cerbos](https://cerbos.dev)
-- [Next.js](https://nextjs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-
 ## Run the Example App
 
 ### Clone the repository
@@ -97,8 +76,6 @@ The first step is to add a SAML connection to the app. To do this, click the men
 
 In real world applications, the SAML connection is typically configured by the IT team and this page should be accessible only by the users with the appropriate access in the organization.
 
-![SAML Connection](./public/images/saml-connection.png)
-
 You can use any identity provider (IdP) that supports SAML 2.0. For this example, we will use [Okta](https://www.okta.com/).
 
 Paste the `XML Metadata` and click `Create SAML Connection` button.
@@ -109,8 +86,6 @@ After the SAML connection is created, click the `Sign in` button from the top na
 
 Enter the work email you have configured in the SAML app and click the `Continue with SAML SSO` button.
 
-![Sign in](./public/images/sign-in.png)
-
 After the SAML authentication is successful, you will be redirected to the home page.
 
 ### Home
@@ -120,6 +95,13 @@ You'll see the user profile of the authenticated user on the home page.
 In addition to the user profile, you'll also see the list of policies that the user has access to. These are the policies that the user has access to based on the roles assigned to the user on the SAML app.
 
 See `/api/resources.ts` for more details about how the policies are fetched from Cerbos.
+
+## Tech Stack
+
+- [SAML Jackson](https://boxyhq.com/docs/jackson/overview)
+- [Cerbos](https://cerbos.dev)
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
 
 ## Learn More
 
