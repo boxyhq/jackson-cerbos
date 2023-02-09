@@ -39,7 +39,7 @@ const handlePOST = async (req: NextApiRequest, res: NextApiResponse) => {
   const cerbosPayload = {
     principal: {
       id,
-      roles: ["user"], // Roles from Okta or other SAML provider
+      roles, // Roles from Okta or other SAML provider
       attributes: {
         email,
       },
