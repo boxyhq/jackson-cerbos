@@ -55,7 +55,7 @@ export const ResourcesPermissions = () => {
           returned by the Cerbos API.
         </p>
         {cerbosResponse && (
-          <table className="table-auto border w-[400px]">
+          <table className="table-fixed border w-[500px]">
             <thead>
               <tr className="border-b text-left">
                 <th className="font-medium px-2 py-2">Resource</th>
