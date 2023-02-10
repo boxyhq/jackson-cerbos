@@ -32,7 +32,7 @@ To start the server, run the following command:
 docker-compose up
 ```
 
-This will start the SAML Jackson server on port `5225`. 
+This will start the SAML Jackson server on port `5225`.
 
 The Jackson endpoint is available at `http://localhost:5225`.
 
@@ -46,7 +46,7 @@ To start the server, run the following command:
 cd cerbos && sh ./start.sh
 ```
 
-This will start the Cerbos gRPC server on port `3593`. 
+This will start the Cerbos gRPC server on port `3593`.
 
 The Cerbos endpoint is available at `http://localhost:3593`.
 
