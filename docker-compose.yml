@@ -1,6 +1,7 @@
 version: "3.8"
 
 services:
+  # Postgres
   postgres:
     image: postgres:13
     volumes:
@@ -11,8 +12,9 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
     networks:
-      - jackson
+      - app
 
+  # BoxyHQ SAML Jackson
   jackson:
     image: "boxyhq/jackson:1.7.5"
     platform: linux/amd64
@@ -28,10 +30,24 @@ services:
       - NEXTAUTH_SECRET=secret #Don't use this secret in production
       - NEXTAUTH_URL=http://localhost:5225
     networks:
-      - jackson
+      - app
+
+  # Cerbos
+  cerbos:
+    image: ghcr.io/cerbos/cerbos:0.24.0
+    # platform: linux/amd64
+    ports:
+      - 3592:3592
+      - 3593:3593
+    volumes:
+      - ./cerbos/config:/config
+      - ./cerbos/policies:/policies
+    command: server --config=/config/conf.yaml
+    networks:
+      - app
 
 networks:
-  jackson:
+  app:
 
 volumes:
   db_data:

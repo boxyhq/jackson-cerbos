@@ -4,6 +4,8 @@ This is an example application that demonstrates how to use [Cerbos](https://cer
 
 ## Run the Example App
 
+Follow the steps below to run the example app.
+
 ### Clone the repository
 
 ```bash
@@ -22,31 +24,25 @@ cd jackson-cerbos
 npm install
 ```
 
-### Run SAML Jackson
+### Run SAML Jackson and Cerbos Instances
 
-This example comes with a SAML Jackson `docker-compose` file that you can use to run the SAML Jackson instance locally.
+This example comes with a `docker-compose` file that you can use to run the SAML Jackson and Cerbos instances locally. See the `docker-compose.yml` file for more details.
 
-To start the server, run the following command:
+To start the servers, run the following command:
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
-This will start the SAML Jackson server on port `5225`.
+OR
+
+```bash
+sh ./start.sh
+```
+
+This will start the SAML Jackson server on port `5225` and the Cerbos gRPC server on port `3593`.
 
 The Jackson endpoint is available at `http://localhost:5225`.
-
-### Run Cerbos
-
-This example comes with a Cerbos `docker` file that you can use to run the Cerbos instance locally. See the folder `cerbos` for more details.
-
-To start the server, run the following command:
-
-```bash
-cd cerbos && sh ./start.sh
-```
-
-This will start the Cerbos gRPC server on port `3593`.
 
 The Cerbos endpoint is available at `http://localhost:3593`.
 
