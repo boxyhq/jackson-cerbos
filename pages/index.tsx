@@ -17,7 +17,7 @@ const Home: NextPage = () => {
           </p>
           <UserProfile />
           <ResourcesPermissions />
-          <ul className="flex flex-row space-x-3">
+          <ul className="flex flex-row space-x-3 pt-10 text-sm text-gray-500">
             <li>
               <a
                 className="underline underline-offset-2"
