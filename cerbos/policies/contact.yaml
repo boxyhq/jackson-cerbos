@@ -6,12 +6,12 @@ resourcePolicy:
     - actions: ["read", "create", "update", "delete"]
       effect: EFFECT_ALLOW
       roles:
-        - admin
+        - app-admin
 
     - actions: ["read", "update"]
       effect: EFFECT_ALLOW
       roles:
-        - user
+        - app-user
       condition:
         match:
           expr: request.resource.attr.author == request.principal.id

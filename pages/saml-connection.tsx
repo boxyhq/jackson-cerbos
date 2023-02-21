@@ -4,7 +4,7 @@ import Container from "../components/Container";
 
 const Me: NextPage = () => {
   const [metadata, setMetadata] = useState<string>("");
-  const [connection, setConnection] = useState({});
+  const [connection, setConnection] = useState(null);
 
   // Create SAML connection
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,6 +39,7 @@ const Me: NextPage = () => {
 
     if (response.ok) {
       const connection = await response.json();
+      console.log(connection);
 
       setConnection(connection.data);
     }

@@ -19,7 +19,7 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, profile }) {
-      const defaultRole = "user";
+      const defaultRole = "app-user";
 
       // Add roles to the token if they exist
       // If there is no role in the profile, use the default role
