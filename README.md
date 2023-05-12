@@ -111,3 +111,24 @@ To learn more about SAML Jackson and Cerbos, take a look at the following resour
 - [Cerbos Website](https://cerbos.dev)
 - [SAML Jackson Documentation](https://boxyhq.com/docs/jackson/overview)
 - [Cerbos Documentation](https://docs.cerbos.dev/cerbos/latest/index.html)
+
+## Contributing
+
+Thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody and are appreciated.
+
+Please try to create bug reports that are:
+
+- _Reproducible._ Include steps to reproduce the problem.
+- _Specific._ Include as much detail as possible: which version, what environment, etc.
+- _Unique._ Do not duplicate existing opened issues.
+- _Scoped to a Single Bug._ One bug per report.
+
+## Community
+
+- [Discord](https://discord.gg/uyb7pYt4Pa) (For live discussion with the Open-Source Community and BoxyHQ team)
+- [Twitter](https://twitter.com/BoxyHQ) (Follow us)
+- [GitHub Issues](https://github.com/boxyhq/jackson-cerbos/issues) (Bug reports, Contributions)
+
+## License
+
+[Apache 2.0 License](https://github.com/boxyhq/jackson/blob/main/LICENSE)
