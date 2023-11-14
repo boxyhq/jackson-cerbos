@@ -2,6 +2,10 @@
 
 This is an example application that demonstrates how to use [Cerbos](https://cerbos.dev) with [SAML Jackson](https://boxyhq.com/docs/jackson/overview)
 
+## Resources
+
+[Blog tutorial](https://boxyhq.com/blog/boxyhq-cerbos-merging-sso-and-authorization)
+
 ## Run the Example App
 
 Follow the steps below to run the example app.
